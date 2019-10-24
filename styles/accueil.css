@@ -1,0 +1,419 @@
+
+*{
+    outline: none; 
+
+}
+
+header{
+    height: 15%;
+    overflow: hidden;
+    padding: 15px;
+    text-align: center;
+}
+header img{
+    height: 100%;
+}
+header .back-arrow{
+    position: absolute;
+    top: 4.5%;
+    left: 20%;
+    height: 35px;
+
+    cursor: pointer;
+}
+
+#intent-accueil .content, #intent-classeurs .content{
+    padding: 0px 20px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+
+    height: 75%;
+}
+div.bloc{
+    padding: 15px;
+}
+div.bloc > div{
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+
+    border-radius: 5px;
+    background-size: cover;
+    overflow: hidden;
+    cursor: pointer;
+}
+div.classeurs{
+    grid-column: 1;
+    grid-row: 1;
+}
+div.documents{
+    grid-column: 1;
+    grid-row: 2;
+}
+div.classeurs > div{
+    background-image: url(../assets/accueil/classeurs.jpg);
+}
+div.documents > div{
+    background-image: url(../assets/accueil/documents.jpg);    
+}
+div.bloc .gradient{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+div.classeurs .gradient{
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#000000+0,ff6f61+100&0+0,0.65+100 */
+    background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(255,111,97,0.65) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(255,111,97,0.65) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(255,111,97,0.65) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6ff6f61',GradientType=0 ); /* IE6-9 */
+}
+div.documents .gradient{
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#000000+0,6f61ff+100&0+0,0.65+100 */
+    background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(111,97,255,0.65) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(111,97,255,0.65) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(111,97,255,0.65) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a66f61ff',GradientType=0 ); /* IE6-9 */
+}
+div.bloc h2 {
+    position: absolute;
+    bottom: 10px;
+    left: 20px;
+
+    text-transform: uppercase;
+    font-size: 250%;
+    color: white;
+    font-weight: bold;
+}
+
+.agenda{
+    grid-row: 1;
+    grid-column: 2;
+    padding-top: 20px;
+
+    text-align: center;
+}
+.agenda h3{
+    display: inline-block;
+    padding: 0 2px;
+
+    color: #ffffff;
+    text-transform: uppercase;
+    font-size: 100%;
+
+    background: var(--pinky);
+    cursor: pointer;
+}
+.agenda table{
+    width: 100%;
+
+    border-spacing: 20px 10px;
+    table-layout: fixed;
+}
+.agenda table thead{
+    font-weight: 900;
+}
+.agenda table > * tr td:last-child, .recents table > * tr td:last-child{
+    text-align: left;
+}
+.agenda table > * tr td:first-child, .recents table > * tr td:first-child{
+    text-align: right !important;
+    /* Important in order to not align it to the left if there is only one element */
+}
+.agenda table h4{
+    color: var(--bluish);
+    font-size: 75%;
+    text-transform: uppercase;
+}
+.agenda table p{
+    margin: 0;
+}
+
+.recents table{
+    width: 100%;
+
+    border-spacing: 20px 5px;
+    table-layout: fixed;
+    text-overflow: clip;
+}
+.recents thead td{
+    color: var(--bluish);
+    text-transform: uppercase;
+    font-weight: bold;
+    line-height: 15px;
+}
+.recents thead td div{
+    /* Trait noir */
+    display: inline-block;
+    width: 65px;
+    height: 3px; 
+
+    background: #000000;
+}
+.recents tbody td{
+    cursor: pointer;
+}
+.recents tbody tr td:last-child{
+    font-weight: bold;
+}
+
+footer{
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    display: inline-block;
+}
+footer img{
+    margin: 0 4px;
+    height: 30px;
+    width: 30px;
+
+    cursor: pointer;
+}
+#nuage{
+    margin: 0 6px;
+}
+footer div.nuage-state{
+    position: absolute;
+    display: inline-block;
+    padding: 0 3px;
+    left: 60px;
+    bottom: 3px;
+    
+    color: white;
+    font-weight: bold;
+    font-size: 75%;
+
+    background: var(--bluish);
+    cursor: pointer;
+}
+
+
+/* CLASSEURS INTENT */
+#intent-classeurs .classeurs-liste{
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+
+    height: 65%;
+    width: 95%; /* In order to align classeurs to the center */
+    margin: auto; /* Align center */
+    margin-top: 30px;
+    
+    overflow: auto;
+}
+#intent-classeurs .classeurs-liste::-webkit-scrollbar{
+    width: 0%; /* Cacher la scrollbar */
+}
+#intent-classeurs .gradient{
+    /* DISABLED (and doesn't work) */
+
+    --size: 70px;
+
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: var(--size);
+   
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#ffffff+0,ffffff+100&0+0,0.65+100 */ 
+    /*
+    background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%); 
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#a6ffffff',GradientType=0 );
+    */
+}
+#intent-classeurs .classeur{
+    width: 370px;
+    height: 100px;
+    margin: 20px auto;
+
+    text-align: right;
+
+    background: #EBEBEB;
+    border-radius: 15px;
+    overflow: hidden;
+    cursor: pointer;
+}
+#intent-classeurs .classeur .illustr{
+    position: relative;
+    float: left;
+    height: 100%;
+    width: 30%;
+    background: url(../assets/classeurs-templates/physique.jpg);
+    background-size: cover;
+    background-position: center;
+}
+#intent-classeurs .classeur .texte{
+    position: relative;
+    float: right;
+    padding: 10px;
+}
+#intent-classeurs .classeur h2{
+    color: var(--bluish);
+    font-size: 120%;
+    font-weight: 800;
+}
+#intent-classeurs .classeur .apercu{
+    margin-top: 5px;
+    font-size: 90%;
+    line-height: 170%;
+}
+#intent-classeurs .classeur .apercu div:hover{
+    text-decoration: underline;
+    text-decoration-color: var(--bluish);
+}
+#intent-classeurs .btn-nouveau{
+    --size: 40px;
+    position: relative;
+    top: 30px;
+    width: var(--size);
+    height: var(--size);
+    margin: auto;
+
+    color: white;
+    font-family: "Material Icons";
+    line-height: var(--size);
+    font-size: 30px;
+    text-align: center;
+
+    border-radius: 10px;
+    background:  var(--bluish);
+    background-size: 60%;
+    transform: rotateZ(45deg);
+
+    cursor: pointer;
+}
+
+
+
+/* Classeur-content */
+#intent-classeurContent .content{
+    display: flex;
+    flex-flow: column;
+    height: 95%;
+    padding: 5px 10px;
+
+}
+#intent-classeurContent .content > *{
+    padding: 0 60px;
+}
+#intent-classeurContent .smallHeader{
+    --size: 35px;
+
+    position: relative;
+    height: 10%;
+    margin-bottom: 10px;
+
+    line-height: var(--size);
+    font-size: 130%;
+}
+.smallHeader .classeur-title{
+    position: relative;
+    float: left;
+}
+.smallHeader .classeur-name{
+    color: #FF00AD;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+.smallHeader .settings{
+    display: inline-block;
+    transition: transform 2s ease;
+    transform: rotateZ(0deg)
+}
+.smallHeader .settings:hover{
+    transition: transform 10s linear;
+    transform: rotateZ(1000deg)
+}
+.smallHeader .inputSearch{
+    transition: width 1s ease;
+
+    position: absolute;
+    right: 40px;
+    width: 35%;
+    height: 100%;
+    height: var(--size);
+
+    border-radius: var(--size);
+    background: #ebebeb;
+    line-height: var(--size);
+}
+.smallHeader .inputSearch.full{
+    width: 90%;
+}
+.smallHeader .inputSearch img{
+    height: var(--size);
+    padding: 3px;
+    margin-left: 7px;
+}
+
+#intent-classeurContent .list{
+    overflow: auto;
+}
+.inputSearch input{
+    transition: width 1s ease;
+
+    position: absolute;
+    top: 0px;
+    right: 0;
+    width: 85%;
+    height: var(--size);
+    
+    font-size: 90%;
+
+    border: none;
+    background: transparent;
+}
+.smallHeader .inputSearch.full input{
+    width: 95%;
+}
+
+#intent-classeurContent  .list{
+    height: 80%;
+    padding-bottom: 15px;
+}
+#intent-classeurContent .list .theme-header{
+    font-size: 120%;
+    font-weight: bold;
+}
+#intent-classeurContent .theme{
+    margin-top: 30px;
+}
+#intent-classeurContent  .theme-header .theme-title{
+    color: var(--bluish);
+    font-weight: 800;
+}
+.chapitre-liste{
+    padding-left: 20px;
+}
+
+.chapitre{
+    display: block;
+    margin: 5px 0;
+    cursor: pointer;
+}
+.chapitre span:not(.number):hover{
+    text-decoration: underline;
+    text-decoration-color: var(--bluish)
+}
+.chapitre .number{
+    color: var(--pinky);
+    font-weight: bold;
+}
+.chapitre .number:after{
+    content: " ";
+}
+#intent-classeurContent footer div{
+    margin: 0 25px 10px 0;
+
+    font-size: 260%;
+    /* color: white; */
+
+    color: var(--bluish);
+    border-radius: 10%;
+    border: 1px solid var(--bluish);
+    box-shadow: 0 0 10px rgba(0,0,0,0.2)
+}

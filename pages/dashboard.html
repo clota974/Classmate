@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Classmate</title>
+        <link rel="stylesheet" href="../styles/main.css" />
+        <link rel="stylesheet" href="../styles/accueil.css" />
+        <script src="../js/main.js"></script>
+        <script src="../js/accueil.js"></script>
+    </head>
+
+    <body>
+        <div class="root">
+            <div class="topper">
+                <div class="traffic-lights">
+                    <div class="traffic-close"></div>
+                    <div class="traffic-minimize"></div>
+                    <div class="traffic-maximize disabled"></div>
+                </div>
+            </div>
+            <section class="main intent" id="intent-accueil" data-intent="main" data-level="1">
+
+                <header>
+                    <img src="../assets/logo/wordmark.svg" alt="" srcset="">
+                </header>
+                
+                <section class="content">
+                    <div class="classeurs bloc" onclick="openIntent('classeurs')"">
+                        <div>
+                            <div class="gradient"></div>
+                            <h2>Classeurs</h2>
+                        </div>
+                    </div>
+                    <div class="agenda">
+                        <h3>Agenda</h3>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <td>Aujourd'hui</td>
+                                    <td>Demain</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <h4>Mathématiques</h4>
+                                        <p>Exercice 1 page 120</p>
+                                    </td>
+                                    <td>
+                                        <h4>Physique-chimie</h4>
+                                        <p>Devoir de rattrapage</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h4>Histoire-géographie</h4>
+                                        <p>Finir les 60 questions</p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="documents bloc">
+                        <div>
+                            <div class="gradient"></div>
+                            <h2>Documents</h2>
+                        </div>
+                    </div>
+                    <div class="recents">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <td>Mes cours<br/><div></div></td>
+                                    <td>Mes classeurs<br/><div></div></td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>La culture</td>
+                                    <td>Philosophie</td>
+                                </tr>
+                                <tr>
+                                    <td>Les dérivés</td>
+                                    <td>Mathématiques</td>
+                                </tr>
+                                <tr>
+                                    <td>Forms of power</td>
+                                    <td>Anglais</td>
+                                </tr>
+                                <tr>
+                                    <td>Le théâtre</td>
+                                    <td>Français</td>
+                                </tr>
+                                <tr>
+                                    <td>Dynamique newtonienne</td>
+                                    <td>Physique-chimie</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <footer>
+                    <img src="../assets/icons/black/recherche.svg" id="recherche" alt="">
+                    <img src="../assets/icons/black/nuage.svg" id="nuage">
+                    <img src="../assets/icons/black/settings.svg" id="settings" alt="">
+                    <div class="nuage-state">OK</div>
+                </footer>
+            </section>
+            <section class="intent" id="intent-classeurs" data-intent="classeurs" data-level="2">
+                <header>
+                    <img src="../assets/icons/black/back.svg" class="back-arrow fn-backIntent">
+                    <img src="../assets/logo/wordmark.svg" alt="" srcset="">
+                </header>
+
+                <section class="classeurs-liste">
+                    <div class="classeur" onclick="openIntent('classeurContent')">
+                        <div class="illustr"></div>
+                        <div class="texte">
+                            <h2>Physique-Chimie</h2>
+                            <div class="apercu">
+                                <div>Dualité onde-particule</div>
+                                <div>Relativité restreinte</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="classeur">
+                        <div class="illustr" style="background-image: url(../assets/classeurs-templates/histoire.jpg)"></div>
+                        <div class="texte">
+                            <h2 style="color: var(--pinky)">Physique-Chimie</h2>
+                            <div class="apercu">
+                                <div>Dualité onde-particule</div>
+                                <div>Relativité restreinte</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="classeur">
+                        <div class="illustr"></div>
+                        <div class="texte">
+                            <h2>Physique-Chimie</h2>
+                            <div class="apercu">
+                                <div>Dualité onde-particule</div>
+                                <div>Relativité restreinte</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="classeur">
+                        <div class="illustr" style="background-image: url(../assets/classeurs-templates/histoire.jpg)"></div>
+                        <div class="texte">
+                            <h2 style="color: var(--pinky)">Physique-Chimie</h2>
+                            <div class="apercu">
+                                <div>Dualité onde-particule</div>
+                                <div>Relativité restreinte</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="classeur">
+                        <div class="illustr"></div>
+                        <div class="texte">
+                            <h2>Physique-Chimie</h2>
+                            <div class="apercu">
+                                <div>Dualité onde-particule</div>
+                                <div>Relativité restreinte</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="classeur">
+                        <div class="illustr" style="background-image: url(../assets/classeurs-templates/histoire.jpg)"></div>
+                        <div class="texte">
+                            <h2 style="color: var(--pinky)">Physique-Chimie</h2>
+                            <div class="apercu">
+                                <div>Dualité onde-particule</div>
+                                <div>Relativité restreinte</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="classeur">
+                        <div class="illustr"></div>
+                        <div class="texte">
+                            <h2>Physique-Chimie</h2>
+                            <div class="apercu">
+                                <div>Dualité onde-particule</div>
+                                <div>Relativité restreinte</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="classeur">
+                        <div class="illustr" style="background-image: url(../assets/classeurs-templates/histoire.jpg)"></div>
+                        <div class="texte">
+                            <h2 style="color: var(--pinky)">Physique-Chimie</h2>
+                            <div class="apercu">
+                                <div>Dualité onde-particule</div>
+                                <div>Relativité restreinte</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <div class="gradient"></div>
+                <div class="btn-nouveau" id="classeurs--btn-nouveau">settings</div>
+            </section>
+            <section class="intent" id="intent-classeurContent" data-intent="classeurContent" data-level="3">
+                    <header>
+                        <img src="../assets/icons/black/back.svg" class="back-arrow fn-backIntent">
+                        <img src="../assets/logo/wordmark.svg" alt="" srcset="">
+                    </header>
+                    
+                    <section class="content">
+                        <div class="smallHeader">
+                            <div class="classeur-title">
+                                <div class="settings m-icon">settings</div>
+                                Classeur de <span class="classeur-name">Physique-Chimie</span>
+                            </div>
+                            <div class="inputSearch">
+                                <img src="../assets/icons/black/filter.svg" alt="">
+                                <input type="text" id="input-search" placeholder="Filtrer...">
+                            </div>
+                        </div>
+
+                        <div class="list">
+                            <div class="theme">
+                                <div class="theme-header">Theme 1 | <span class="theme-title">Ondes et matières</span></div>
+                                <div class="chapitre-liste">
+                                    <div class="chapitre"><span class="number">1.</span><span>Dualité Ondes-Particules</span></div>
+                                    <div class="chapitre"><span class="number">2.</span><span>Caractéristiques des ondes</span></div>
+                                    <div class="chapitre"><span class="number">3.</span><span>Caractéristiques des ondes</span></div>
+                                </div>
+                            </div>
+                            
+                            <div class="theme">
+                                <div class="theme-header">Theme 2 | <span class="theme-title">Lois et modèles</span></div>
+                                <div class="chapitre-liste">
+                                    <div class="chapitre"><span class="number">1.</span><span>Les lois de Newton</span></div>
+                                    <div class="chapitre"><span class="number">2.</span><span>Les lois de Kepler</span></div>
+                                    <div class="chapitre"><span class="number">3.</span><span>Travail et énergie</span></div>
+                                </div>
+                            </div>
+
+                            <div class="theme">
+                                <div class="theme-header">Theme 3 | <span class="theme-title">Ondes et matières</span></div>
+                                <div class="chapitre-liste">
+                                    <div class="chapitre"><span class="number">1.</span><span>Dualité Ondes-Particules</span></div>
+                                    <div class="chapitre"><span class="number">2.</span><span>Caractéristiques des ondes</span></div>
+                                    <div class="chapitre"><span class="number">3.</span><span>Caractéristiques des ondes</span></div>
+                                </div>
+                            </div>
+                            
+                            <div class="theme">
+                                <div class="theme-header">Theme 4 | <span class="theme-title">Lois et modèles</span></div>
+                                <div class="chapitre-liste">
+                                    <div class="chapitre"><span class="number">1.</span><span>Les lois de Newton</span></div>
+                                    <div class="chapitre"><span class="number">2.</span><span>Les lois de Kepler</span></div>
+                                    <div class="chapitre"><span class="number">3.</span><span>Travail et énergie</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <footer>
+                        <div class="m-icon">add</div>
+                    </footer>
+                </section>
+        </div>
+    </body>
+</html>

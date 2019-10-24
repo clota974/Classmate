@@ -1,0 +1,144 @@
+:root{
+    --pinky: #FF6F61;
+    --bluish: #6F61FF;
+    --green-ok: #14937F;
+
+    --yellow: #FFEE00;
+    --red: #F13750;
+    --green: #009D4F;
+    --none: #FFF;
+}
+
+*{
+    box-sizing: border-box;
+    outline: none;
+    -webkit-user-select: none; 
+}
+body, html{
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+
+    font-family: "Raleway";
+    background: transparent;
+}
+div.root{
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+
+    background: #fff;
+    border-radius: 5px;
+}
+
+div.root.isFullScreen{
+    border-radius: 0;
+}
+
+::-webkit-scrollbar{
+    width: 15px;
+}
+::-webkit-scrollbar-track{
+    background: transparent;
+}
+::-webkit-scrollbar-thumb {
+    height: 10px;
+    background: #EEE; 
+    border: 4px solid #FFF;
+    border-radius: 10px;
+}
+
+h1,h2,h3,h4,h5{
+    margin: 0;
+    padding: 0;
+}
+
+.topper{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 100vw;
+    -webkit-app-region: drag;
+
+    z-index: 90;
+}
+.topper.auto-hide{
+    opacity: 0;
+}
+.topper.auto-hide:hover{
+    opacity: 1;
+}
+.traffic-lights{
+    display: inline-block;
+    height: 100%;
+    padding: 2px 6px;
+}
+.traffic-lights > div{
+    display: inline-block;
+    height: 13px;
+    width: 13px;
+    margin: 0 1px;
+    
+    border-radius: 50%;
+    background-size: 61%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.traffic-close{
+    background: url(../assets/traffic/close.svg) #ff6159;
+}
+.traffic-minimize{
+    background: url(../assets/traffic/minimize.svg) #ffbd2e;
+}
+.traffic-maximize{
+    /* IS DISABLED sometimes */
+    background: url(../assets/traffic/maximize.svg) #28c941;
+    background-size: 58% !important;
+}
+.traffic-lights:not(:hover) > div{
+    background-image: none;
+}
+.traffic-lights > div.disabled{
+    background: #ddd;
+}
+
+.m-icon{
+    font-family: "Material Icons";
+    vertical-align: bottom;
+    cursor: pointer;
+}
+
+section.intent{
+    transition: transform 2s ease, opacity 2s ease;
+    will-change: transform, opacity;
+    
+    height: 100vh;
+    width: 100vw;
+    padding: 0;
+    margin: 0;
+    position: fixed;
+    top: 100%;
+    left: 0;
+
+    overflow: hidden;
+    opacity: 1;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0 -1px 20px rgba(0,0,0,0.2);
+
+    transform: translateY(0);
+}
+div.root.isFullScreen section.intent{
+    border-radius: 0px;
+}
+section.intent.main{
+    box-shadow: none;
+}
+section.intent.show{
+    transform: translateY(-100%);
+    opacity: 1;
+}
