@@ -7,8 +7,11 @@
     <title>Classmate</title>
     <link rel="stylesheet" href="../styles/main.css" />
     <link rel="stylesheet" href="../styles/editeur.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.css" integrity="sha384-bsHo4/LA+lkZv61JspMDQB9QP1TtO4IgOf2yYS+J6VdAYLVyx1c3XKcsHh0Vy8Ws" crossorigin="anonymous">
     <script src="../js/main.js"></script>
     <script src="../js/editeur.js"></script>
+    <script src="../js/classes/specialkey.js"></script>
+    <script src="../js/classes/formula.js"></script>
 </head>
 <body>
     <div class="root">
@@ -22,7 +25,7 @@
                 <div class="m-icon" id="icon-italic" data-role="italic">format_italic</div>
                 <div class="m-icon" id="icon-underline" data-role="underline">format_underline</div>
                 <div class="break"></div>
-                <div class="m-icon" id="icon-color" data-role="color"><b>A</b></div>
+                <div class="m-icon" id="icon-color" data-role="color"><b style="font-family: 'IBM Plex Sans'">A</b></div>
                 <div class="m-icon" id="icon-highlight" data-role="highlight">edit</div>
                 <div class="break"></div>
                 <div class="m-icon" id="icon-align" data-role="justifyLeft">format_align_left</div>
@@ -36,7 +39,7 @@
                 <div class="m-icon" id="icon-keyword" data-role="specialKey">extension</div>
                 <div class="m-icon" id="icon-bookmark" data-role="link">link</div>
                 <div class="m-icon" id="icon-bookmark">bookmark_border</div>
-                <div class="m-icon" id="icon-formula">functions</div>
+                <div class="m-icon" id="icon-formula" data-role="formula">functions</div>
                 <div class="right">
                     <div class="m-icon" id="icon-paint">format_paint</div>
                     <div class="m-icon" id="icon-print">print</div>
@@ -62,9 +65,11 @@
                         
                         <div class="part" data-number="I">
                             <h1><span class="number">I.</span><span class="h-title">Les protections physiques du système</span></h1>
-                         
+                            
                             <div class="part" data-number="1">
-                                <h2><span class="number">1.</span><span class="h-title">Les protections physiques</span></h1>
+                                <h2><span class="number">1.</span>
+                                    <span class="h-title">Les protections physiques</span>
+                                </h2>
 
                                 <p>Lorem ipsum <b>dolor sit amet</b>, consectetur adipiscing elit. Sed a nibh ut sapien bibendum auctor. Sed mattis dolor nec tortor interdum elementum. Nunc mollis elit et sapien malesuada vulputate. Donec ultricies commodo ipsum, nec aliquam ligula gravida ac. Suspendisse potenti. Pellentesque gravida augue nulla, vel eleifend diam pellentesque non.
                                 <br/><br/>Nullam <mark>porttitor</mark> leo quis felis dictum, eu eleifend leo rhoncus. Fusce nec augue metus. Aenean ut sapien risus. In hac habitasse platea dictumst. Aenean pulvinar a tellus eu porta. Pellentesque mauris felis, imperdiet eget blandit sit amet, tempus non massa. Donec nec lacus quis tellus porta congue sed vel velit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;</p>
@@ -73,9 +78,8 @@
                                     <div class="note">1</div>
                                     <div class="keyword">Définition</div>
                                     <div class="hr"></div>
-                                    <div class="title"><span>Epiderme</span></div>
+                                    <div class="title"><span>Formule</span></div>
                                     <p class="content">
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
                                     </p>
                                 </div>
 
@@ -86,8 +90,35 @@
                 </div>
             </div>
 
-            <aside></aside>
+            <aside>
+                <input type="text" placeholder="ShortCut" class="center">
+                <div class="content">
 
+                </div>
+            </aside>
+
+            <div class="latex-editor">
+                <textarea id="latex-text" placeholder="Confirmez pour supprimer la zone de formules"></textarea>
+                <div class="options">
+                    <div class="m-icon format">format_size</div>
+                    <div class="m-icon confirm">check</div>
+                </div>
+                <div class="buttons">
+                    <button>\sqrt{□}</button>
+                    <button>□^2</button>
+                    <button>□^□</button>
+                    <button>\cos</button>
+                    <button>\sin</button>
+                    <button>\tan</button>
+                    <button>\lim</button>
+                    <button>\cup</button>
+                    <button>\cap</button>
+                    <button>\exists</button>
+                    <button>\mathbb{R}</button>
+                    <button>\forall</button>
+                </div>
+
+            </div>
         </section>
     </div>
 </body>

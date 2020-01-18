@@ -20,6 +20,7 @@
   },
   "dependencies": {
     "jquery": "^3.4.1",
+    "katex": "^0.11.1",
     "rich-text-editor": "^4.1.10"
   }
 }

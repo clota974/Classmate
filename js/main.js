@@ -55,3 +55,11 @@ function backIntent(){
 
     intents.pop();
 }
+
+function replaceValues(obj, target){
+    for (const key in obj) {
+        if (obj.hasOwnProperty(key)) {
+            target[key] = obj[key];
+        }
+    }
+}

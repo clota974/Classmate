@@ -1,3 +1,5 @@
+const katex = require("katex");
+
 var currentWin = remote.getCurrentWindow();
 currentWin.setMaximizable(true);
 currentWin.setResizable(true);
@@ -5,6 +7,10 @@ currentWin.setResizable(true);
 var numbers = {
     1: ["I", "II", "III", "IV"],
     2: ["1", "2", "3", "4", "5"]
+}
+
+skeleton = {
+    specialKeys: []
 }
 
 var floating_tool = null;
@@ -49,26 +55,14 @@ var roles_fn = {
         document.execCommand("foreColor", true, color)
     },
     specialKey: function(){
-        var html = $(`<div class="specialKey" data-key="Définition">
-        <div class="note"></div>
-        <div class="keyword">Définition</div>
-        <div class="hr"></div>
-        <div class="title"><span>Epiderme</span></div>
-        <p class="content">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-        </p>
-        </div>`);
-        var p = $(`<p></p>`);
-
-        var sel = document.getSelection();
-        var range = sel.getRangeAt(0);
-        
-        range.insertNode(p.get(0));
-        range.insertNode(html.get(0));
-        
-        console.log($(html).prevAll("[data-key='Définition']"));
-        var n = $(html).prevAll(".note").length +1;
-        $(html).children(".note").text(n);
+        new SpecialKey({keyword:"Définition"});
+    },
+    formula: function(){
+        new Formula({
+            formula: "",
+            isBlock: false,
+            openEditor: true
+        })
     }
 }
 
@@ -136,6 +130,21 @@ $(document).ready(function(){
     $(".m-title").click(function(){
         
     })
+
+    $(".h-title").change(function(){
+        alert();
+    })
+
+
+    $(".latex-editor .buttons button").each(function(ix, el){
+        var text = $(el).text();
+        $(el).attr("data-role", text);
+        $(el).html( katex.renderToString(text) );
+    });
+
+    $(".stop").on("remove", function(){
+        alert();
+    });
 });
 
 function format(tool, value){

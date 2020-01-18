@@ -107,8 +107,8 @@ h1,h2,h3,h4,h5{
 }
 
 .m-icon{
-    font-family: "Material Icons";
-    vertical-align: bottom;
+    font-family: "Material Icons" !important;
+    vertical-align: bottom !important;
     cursor: pointer;
 }
 
@@ -141,4 +141,14 @@ section.intent.main{
 section.intent.show{
     transform: translateY(-100%);
     opacity: 1;
+}
+input{
+    padding: 5px;
+    font-size: 110%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--bluish);
+}
+input.center{
+    text-align: center;
 }
