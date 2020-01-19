@@ -31,12 +31,14 @@ class SpecialKey{
         <div class="keyword">${self.keyword}</div>
         <div class="hr"></div>
         <div class="title"><span>${self.title}</span></div>
-        <p class="content">
+        <p class="content pOfSpecialkey">
             ${self.content}
         </p>
         `);
 
         $(parent).append(content);
+
+        
         return parent;
     }
 

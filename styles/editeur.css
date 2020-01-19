@@ -97,6 +97,21 @@ aside input{
     display: block;
     width: 100%;
 }
+aside .content{
+    padding: 5px;
+    padding-top: 15px;
+}
+aside .content .break{
+    margin: 20px 0;
+    padding: 5px;
+
+    text-transform: uppercase;
+    font-weight: bold;
+    text-align: center;
+    
+    border: 0 solid var(--bluish);
+    border-width: 1px 0;
+}
 div.paper{
     grid-column: 1;
     grid-row: 2 / 4;

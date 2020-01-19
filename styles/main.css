@@ -55,6 +55,10 @@ h1,h2,h3,h4,h5{
     margin: 0;
     padding: 0;
 }
+kbd{
+    font-family: 'IBM Plex Mono';
+}
+
 
 .topper{
     position: fixed;
@@ -151,4 +155,47 @@ input{
 }
 input.center{
     text-align: center;
+}
+
+.toast{
+    transition: box-shadow .3s ease;
+
+    background: white;
+    width: 100%;
+    height: 70px;
+    margin-top: 15px;
+
+    border-radius: 15px;
+    box-shadow: 0px 5px 10px rgba(0,0,0,0.3);
+    overflow: hidden;
+    cursor: pointer;
+}
+.toast:hover{
+    box-shadow: 0px 10px 15px rgba(0,0,0,0.3);
+}
+.toast .left{
+    position: relative;
+    float: left;
+    width: 70px;
+    height: 100%;
+
+    text-align: center;
+    font-size: 50px;
+    line-height: 70px;
+    color: #FFF;
+
+    background: var(--bluish);
+}
+
+.toast .right{
+    float: right;
+    width: calc(100% - 70px);
+    padding: 5px 10px;
+}
+.toast .right p{
+    font-size: 90%;
+    margin: 0;
+}
+.toast .right h5{
+    font-size: 100%;
 }

@@ -145,6 +145,16 @@ $(document).ready(function(){
     $(".stop").on("remove", function(){
         alert();
     });
+
+    document.onselectionchange = () => {
+        localize();
+    }
+    $("body").on("keyup", function(ev){
+        if(skeleton.print.critical && ev.keyCode == 8){
+            $(skeleton.print.object).remove();
+        }
+        localize();
+    })
 });
 
 function format(tool, value){
@@ -158,6 +168,13 @@ function format(tool, value){
 }
 
 function localize(){
+    var print = {
+        parts: [],
+        node: "",
+        object: null,
+        critical: false // Determines if it can delete an object
+    }
+
     var parts = [];
 
     var focus = document.getSelection().focusNode.parentElement;
@@ -166,6 +183,7 @@ function localize(){
     var parent = focus;
 
     var i = 10;
+    // Title
     while(!atRoot){
 
         parent = $(parent).parent();
@@ -177,8 +195,32 @@ function localize(){
 
         parts.unshift( $(parent).attr("data-number") )
     }
+    print.parts = parts;
 
-    return parts;
+    // Element type
+    var range = document.getSelection().getRangeAt(0);
+
+    if( $(range.startContainer.parentElement).parent(".specialKey").length){
+        print.node = "specialKey"
+    }else if(range.startContainer.className === "h-title"){
+        print.node = "title";
+        
+        print.object = range.startContainer;
+    }else if(range.startContainer.nodeName === "#text"){
+        if(range.startContainer.parentElement.className === "h-title"){
+            print.node = "title";
+            print.object = range.startContainer.parentElement;
+        }else{
+            print.node = range.startContainer.parentElement.nodeName;
+        }
+    }
+    
+    if(range.startContainer.nodeName == "SPAN"){
+        print.critical = true;
+    }
+
+    skeleton.print = print;
+    return print;
 }
 
 function getCenterOfElement(el){
