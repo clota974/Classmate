@@ -68,6 +68,14 @@ var roles_fn = {
 
 $(document).ready(function(){
 
+    $(".fff").html(function(){
+        return new Formula({
+            formula: "ax^2+bx+c=0",
+            isBlock: true,
+            doNotAppend: true
+        }).html
+    })
+
     $(".color-circle").each(function(){
         var color = $(this).attr("data-color");
         $(this).css("background-color", `var(--${color})`)
@@ -151,7 +159,8 @@ $(document).ready(function(){
     }
     $("body").on("keyup", function(ev){
         if(skeleton.print.critical && ev.keyCode == 8){
-            $(skeleton.print.object).remove();
+            console.log("ERASING")
+            $(skeleton.print.object).parent().remove();
         }
         localize();
     })
@@ -168,6 +177,10 @@ function format(tool, value){
 }
 
 function localize(){
+    console.log($(".textarea:focus"))
+    if( $("textarea:focus, input:focus").length == 1 ){
+        return false;
+    }
     var print = {
         parts: [],
         node: "",
@@ -177,7 +190,7 @@ function localize(){
 
     var parts = [];
 
-    var focus = document.getSelection().focusNode.parentElement;
+    var focus = document.getSelection().getRangeAt(0).startContainer.parentElement;
 
     var atRoot = false;
     var parent = focus;

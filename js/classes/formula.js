@@ -96,6 +96,8 @@ class FormulaEditor{
         skeleton.formulaEditor = this;
 
         self.update(obj.formula);
+        $(this.textarea).focus();
+        
 
         $(this.textarea).on("input", function(){
             self.update($(this).val());
@@ -120,22 +122,27 @@ class FormulaEditor{
             ev.preventDefault();
             self.object.isBlock = self.object.isBlock ? false : true;
             self.object.generateHTML();
-            console.log(self.object.isBlock)
+
         })
+
+       
     }
 
     update(val){
         this.object.formula = val;
 
         $(this.textarea).val(val);
+        console.log("ok");
         this.object.generateHTML();
     }
 
     destroy(){
+        console.warn("Destroyed")
         $("#intent-editeur").removeClass("latexIsOn");
         skeleton.formulaEditor = null;
 
         $(this.textarea).off("input");
+        $(this.editor).find(".format").off("mousedown")
 
         if($(this.textarea).val().length == 0) this.object.destroy();
         delete this;
