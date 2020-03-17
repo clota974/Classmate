@@ -155,14 +155,22 @@ $(document).ready(function(){
     });
 
     document.onselectionchange = () => {
-        localize();
+        try {
+            localize();
+        } catch (error) {
+            skeleton.print.object = null;
+        }
     }
     $("body").on("keyup", function(ev){
         if(skeleton.print.critical && ev.keyCode == 8){
             console.log("ERASING")
             $(skeleton.print.object).parent().remove();
         }
-        localize();
+        try {
+            localize()
+        } catch (error) {
+            skeleton.print.object = null;
+        }
     })
 });
 
@@ -177,7 +185,6 @@ function format(tool, value){
 }
 
 function localize(){
-    console.log($(".textarea:focus"))
     if( $("textarea:focus, input:focus").length == 1 ){
         return false;
     }
@@ -195,18 +202,23 @@ function localize(){
     var atRoot = false;
     var parent = focus;
 
-    var i = 10;
+    var i = 0;
     // Title
     while(!atRoot){
+        i++;
 
         parent = $(parent).parent();
 
-        if( $(parent).hasClass("lessonContent") ){
+        if( $(parent).hasClass("lessonContent") || parent.length === 0){
             atRoot = true;
-            break
+            break;
         }
-
         parts.unshift( $(parent).attr("data-number") )
+
+        if(i>=10){
+            console.error("Couldn't localize parts.")
+            break;
+        }
     }
     print.parts = parts;
 
